@@ -18,12 +18,12 @@
 	// As far as I know, OTX is based on TFS_03, so make sure TFS version is configured TFS_03
 	$config['CustomVersion'] = false;
 
-	$config['site_title'] = 'Pokemon All-Stars';
-	$config['site_title_context'] = 'Fan Made Poketibia Game';
-	$config['site_url'] = "http://pokedex.sytes.net/website";
+	$config['site_title'] = 'PokemonUFC';
+	$config['site_title_context'] = 'Fan Made PokemonUFC Game';
+	$config['site_url'] = "http://pekedex.sytes.net/web";
 
 	// Path to server folder without "\" (or "/") at the end, ex: C:\Users\Username\Documents\GitHub\forgottenserver
-	$config['server_path'] = 'C:\xampp\htdocs\server';
+	$config['server_path'] = 'C:\xampp\htdocs\PokemonUFC';
 
 	// ------------------------ \\
 	// MYSQL CONNECTION DETAILS \\
@@ -36,7 +36,7 @@
 	$config['sqlPassword'] = '';
 
 	// The database name to connect to. (This is usually same as username).
-	$config['sqlDatabase'] = 'pokeallstars';
+	$config['sqlDatabase'] = 'pokemon';
 
 	// Hostname is usually localhost or 127.0.0.1.
 	$config['sqlHost'] = 'localhost';
@@ -274,7 +274,7 @@
 			'fromVoc' => false
 		),
 		1 => array(
-			'name' => 'Pokemon Trainer',
+			'name' => 'Pokemon Fighter',
 			'fromVoc' => false
 		)
 	);
@@ -284,13 +284,13 @@
 		- Currently used for admin_skills page. */
 	$config['vocations_gain'] = array(
 		0 => array(
-			'hp' => 30,
-			'mp' => 30,
+			'hp' => 10,
+			'mp' => 10,
 			'cap' => 1
 		),
 		1 => array(
-			'hp' => 30,
-			'mp' => 30,
+			'hp' => 10,
+			'mp' => 10,
 			'cap' => 1
 		)
 	);
@@ -326,12 +326,9 @@
 	// Leave on black square in map and player should get teleported to their selected town.
 	// If chars get buggy set this position to a beginner location to force players there.
 	$config['default_pos'] = array(
-		//'x' => 5000,
-		//'y' => 805,
-		//'z' => 6,
-		'x' => 5000,
-		'y' => 805,
-		'z' => 6,
+		'x' => 4946,
+		'y' => 793,
+		'z' => 7,
 	);
 
 	$config['war_status'] = array(
@@ -354,7 +351,7 @@
 	// ---------------- \\
 
 	// Max characters on each account:
-	$config['max_characters'] = 10;
+	$config['max_characters'] = 5;
 
 	// Available character vocation users can choose (specify vocation ID).
 	$config['available_vocations'] = array(1);
@@ -365,43 +362,46 @@
 
 	$config['player'] = array(
 		'base' => array(
-			'level' => 99,
-			'health' => 990,
-			'mana' => 990,
+			'level' => 8,
+			'health' => 330,
+			'mana' => 330,
 			'cap' => 6,
-			'soul' => 250,
+			'soul' => 0
 		),
 		// Health, mana cap etc are calculated with $config['vocations_gain'] and 'base' values of $config['player']
 		'create' => array(
-			'level' => 99,
+			'level' => 8,
 			'novocation' => array( // Vocation id 0 (No vocation) special settings
-			'health' => 990,
-			'mana' => 990,
-			'cap' => 6, // Amount of Pokemons in BP
-			'soul' => 250, // Respect Points
+				'level' => 1,
+				'health' => 330,
+				'mana' => 330,
+				'cap' => 6,
+				'soul' => 0,
+				'forceTown' => true,
+				'townId' => 1
 			),
 			'skills' => array( // See $config['vocations'] for proper vocation names of these IDs
 				// No vocation
 				0 => array(
-					'magic' => 22,
-					'fist' => 33,
-					'club' => 44,
-					'axe' => 55,
-					'sword' => 66, // Battles Won
-					'dist' => 77,
-					'shield' => 88,
-					'fishing' => 99,
+					'magic' => 0,
+					'fist' => 0,
+					'club' => 0,
+					'axe' => 0,
+					'sword' => 0,
+					'dist' => 0,
+					'shield' => 0,
+					'fishing' => 0,
 				),
 				// Sorcerer
 				1 => array(
-					'magic' => 22,
-					'fist' => 33,
-					'club' => 44,
-					'axe' => 55,
-					'sword' => 66,
-					'dist' => 77,
-					'shield' => 88,
-					'fishing' => 99,
+					'magic' => 0,
+					'fist' => 0,
+					'club' => 0,
+					'axe' => 0,
+					'sword' => 0,
+					'dist' => 0,
+					'shield' => 0,
+					'fishing' => 0,
 				),
 				// Druid
 				2 => array(
@@ -480,11 +480,11 @@
 
 	// ONLY FOR TFS 0.2 (TFS 0.3/4 users don't need to care about this, as its fully loaded from db)
 	$config['house'] = array(
-		'house_file' => 'C:\xampp\htdocs\server\data\world\map-house.xml',
+		'house_file' => 'C:\test\Mystic Spirit_0.2.5\data\world\forgotten-house.xml',
 		'price_sqm' => '50', // price per house sqm
 	);
 
-	$config['delete_character_interval'] = '1 HOUR'; // Delay after user character delete request is executed, ex: 1 DAY, 2 HOUR, 3 MONTH etc.
+	$config['delete_character_interval'] = '3 DAY'; // Delay after user character delete request is executed, ex: 1 DAY, 2 HOUR, 3 MONTH etc.
 
 	$config['validate_IP'] = false;
 	$config['salt'] = false;
@@ -510,10 +510,10 @@
 
 	// Show outfits
 	$config['show_outfits'] = array(
-		'shop' => true,
-		'highscores' => true,
-		'characterprofile' => true,
-		'onlinelist' => true,
+		'shop' => false,
+		'highscores' => false,
+		'characterprofile' => false,
+		'onlinelist' => false,
 		// Image server may be unreliable and only for test,
 		// host yourself: https://otland.net/threads/item-images-10-92.242492/
 		'imageServer' => 'https://outfit-images.ots.me/animatedOutfits1099/animoutfit.php'
@@ -521,10 +521,10 @@
 
 	// Show advanced inventory data in character profile
 	$config['EQ_shower'] = array(
-		'enabled' => true,
-		'equipment' => true,
+		'enabled' => false,
+		'equipment' => false,
 		'skills' => true,
-		'outfits' => true,
+		'outfits' => false,
 		// Player storage (storage_value + outfitId)
 		// used to see if player has outfit.
 		// see Lua scripts folder for otserv code
@@ -581,7 +581,7 @@
 	// WARNING! Account names written here will have admin access to web page!
 	$config['page_admin_access'] = array(
 		'GOD',
-		'GOD2',
+		'Reeke',
 	);
 
 	// Built-in FORUM
@@ -590,10 +590,10 @@
 	// How to design/display hidden/closed/sticky threads.
 	$config['forum'] = array(
 		'enabled' => true,
-		'outfit_avatars' => true, // Show character outfit as forum avatar?
+		'outfit_avatars' => false, // Show character outfit as forum avatar?
 		'player_position' => true, // Show character position? ex: Tutor, Community Manager, God
 		'guildboard' => true,
-		'level' => 5,
+		'level' => 20,
 		'cooldownPost' => 1, // 60,
 		'cooldownCreate' => 1, // 180,
 		'newPostsBumpThreads' => true,
